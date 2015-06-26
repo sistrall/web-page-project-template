@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<!-- About Section -->
+<section class="success" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2  text-center">
+        {% capture about %}{% include about.md %}{% endcapture %}
+        {{ about | markdownify }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if site.visualization == "grid" %}
+  {% include portfolio_grid.html %}
+{% elsif site.visualization == "blog" %}
+  {% include blog.html %}
+{% else site.visualization == "none" %}
+  {% include empty.html %}
+{% endif %}
+
+{% if site.contact == "static" %}
+  {% include contact_static.html %}
+{% elsif site.contact == "dinamic" %}
+  {% include contact.html %}
+{% elsif site.contact == "none" %}
+  {% include empty.html %}
+{% endif %}
